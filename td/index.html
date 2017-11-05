@@ -7,7 +7,11 @@
     * {margin: 0; padding: 0;}
     li {list-style: none;}
     body {position: absolute; top: 0; left: 0; bottom: 0; right: 0}
-    .container {position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);}
+    .list-2, img{
+      -webkit-box-reflect: below 0 -webkit-linear-gradient(top,rgba(250,250,250,0),rgba(250,250,250,.0) 30%,rgba(250,250,250,0.3));
+      box-reflect: below 0 linear-gradient(top,rgba(250,250,250,0),rgba(250,250,250,.0) 30%,rgba(250,250,250,0.3));
+    }
+    .container {position: absolute; left: 50%; top: 30%; transform: translate(-50%, -50%);}
     .container,
     .list-1{width: 1063px; height: 350px;}
     .list-1 {position: absolute}
