@@ -37,7 +37,7 @@ a,a:hover{color:#333;}
   height: inherit
 }
 .music.play {
-  animation: rotate 20s infinite;
+  animation: rotate 10s infinite;
 }
 @keyframes rotate {
   0% {
