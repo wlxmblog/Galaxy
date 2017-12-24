@@ -38,8 +38,17 @@ a,a:hover{color:#333;}
 }
 .music.play {
   animation: rotate 10s infinite;
+  -webkit-animation: rotate 10s infinite;
 }
 @keyframes rotate {
+  0% {
+    transform: rotate(0)
+  }
+  100% {
+    transform: rotate(360deg)
+  }
+}
+@-webkit-keyframes rotate {
   0% {
     transform: rotate(0)
   }
