@@ -47,7 +47,7 @@
     <div class="swiper-pagination"></div>
     <div class="music play">
       <img src="img/music.png" alt="">
-      <!-- <audio src="http://dl.stream.qqmusic.qq.com/C4000026jR5i3KrV9I.m4a?vkey=2A5BBBFD709F116D036631AC4CE25B050ABD6B703FE7108B3DFEB0B81FC069C28A8FA8A928EB7DDAB82C1A853097A8AF43D18A933300A8A8&guid=7693719753&uin=1026430269&fromtag=66" autoplay></audio> -->
+      <audio src="http://dl.stream.qqmusic.qq.com/C4000026jR5i3KrV9I.m4a?vkey=2A5BBBFD709F116D036631AC4CE25B050ABD6B703FE7108B3DFEB0B81FC069C28A8FA8A928EB7DDAB82C1A853097A8AF43D18A933300A8A8&guid=7693719753&uin=1026430269&fromtag=66" autoplay></audio>
     </div>
     <div class="bg">
       <canvas id="canvas"></canvas>
@@ -56,106 +56,106 @@
   <script src="js/jquery.js"></script>
   <script type="text/javascript" src="http://cdn.webfont.youziku.com/wwwroot/js/wf/youziku.api.min.js"></script>
   <script>
-    // class Particle {
-    //   constructor(x, y, color = "rgba(0, 255, 0, 1)", shadow = false) {
-    //     this.x = x
-    //     this.y = y
-    //     this.r = Math.random() * 5
-    //     this.color = color
-    //     this.xSpeed = Math.random()
-    //     this.ySpeed = Math.random()
-    //     this.scale = 1
-    //   }
+    class Particle {
+      constructor(x, y, color = "rgba(0, 255, 0, 1)", shadow = false) {
+        this.x = x
+        this.y = y
+        this.r = Math.random() * 5
+        this.color = color
+        this.xSpeed = Math.random()
+        this.ySpeed = Math.random()
+        this.scale = 1
+      }
 
-    //   drawParticle(ctx) {
-    //     ctx.beginPath()
-    //     ctx.arc(this.x, this.y, this.r, 0, 360)
-    //     ctx.closePath()
-    //     ctx.fillStyle = this.color
-    //     if (this.shadow) {
-    //       ctx.shadowColor = '#FFF'
-    //       ctx.shadowOffsetX = 0
-    //       ctx.shadowOffsetY = 0
-    //       ctx.shadowBlur = this.r * 2
-    //     }
-    //     ctx.fill()
-    //   }
+      drawParticle(ctx) {
+        ctx.beginPath()
+        ctx.arc(this.x, this.y, this.r, 0, 360)
+        ctx.closePath()
+        ctx.fillStyle = this.color
+        if (this.shadow) {
+          ctx.shadowColor = '#FFF'
+          ctx.shadowOffsetX = 0
+          ctx.shadowOffsetY = 0
+          ctx.shadowBlur = this.r * 2
+        }
+        ctx.fill()
+      }
 
-    //   drawLine(ctx, particle) {
-    //     let dx = this.x - particle.x
-    //     let dy = this.y - particle.y
-    //     let d = Math.sqrt(dx * dx + dy * dy)
+      drawLine(ctx, particle) {
+        let dx = this.x - particle.x
+        let dy = this.y - particle.y
+        let d = Math.sqrt(dx * dx + dy * dy)
 
-    //     if (d < 150) {
-    //       ctx.beginPath()
-    //       ctx.moveTo(this.x, this.y)
-    //       ctx.lineTo(particle.x, particle.y)
-    //       ctx.closePath()
-    //       ctx.lineWidth = 0.1
-    //       ctx.strokeStyle = this.color
-    //       ctx.stroke()
-    //     }
-    //   }
-    //   // 粒子的移动，必须在屏幕范围内
-    //   move(w, h) {
-    //     this.xSpeed = (this.x < w && this.x > 0) ? this.xSpeed : -this.xSpeed
-    //     this.ySpeed = (this.y < h && this.y > 0) ? this.ySpeed : -this.ySpeed
-    //     this.x += this.xSpeed / 2
-    //     this.y += this.ySpeed / 2
-    //   }
-    // }
-    // class Bubble extends Particle {
-    //   constructor(x, y, color, shadow) {
-    //     super(x, y, color, shadow)
-    //   }
-    //   move(h) {
-    //     this.y = this.y <= -10 ? (this.ySpeed = Math.random(), h + 10) : (this.y - this.ySpeed / 2)
-    //   }
-    // }
-    // class StarCanvas {
-    //   constructor(selector, w, h, num) {
-    //     this.canvas = document.querySelector(selector)
-    //     this.ctx = null
-    //     this.w = w
-    //     this.h = h
-    //     this.num = num
-    //     this.bubbles = []
-    //   }
-    //   init() {
-    //     let w = this.w
-    //     let h = this.h
-    //     this.canvas.width = w
-    //     this.canvas.height = h
-    //     this.ctx = this.canvas.getContext('2d')
-    //     let i, num
-    //     num = this.num
-    //     for (i = 0; i < num; i++) {
-    //       this.bubbles.push(new Bubble(Math.random() * w, h + 10, 'rgba(0, 255, 0, 1)', true))
-    //     }
-    //     this.draw()
-    //   }
-    //   draw() {
-    //     let ctx = this.ctx
-    //     let w = this.w
-    //     let h = this.h
-    //     let num = this.num
-    //     let bubbles = this.bubbles
-    //     ; (function _draw() {
-    //       ctx.clearRect(0, 0, w, h)
-    //       for (let i = 0; i < num; i++) {
-    //         bubbles[i].move(h)
-    //         bubbles[i].drawParticle(ctx)
-    //       }
-    //       requestAnimationFrame(_draw)
-    //     }())
-    //   }
-    // }
-    // let can = '#canvas'
-    // let con = document.querySelector('.bg')
-    // let w = con.clientWidth
-    // let h = con.clientHeight
-    // let bubble = new StarCanvas(can, w, h, 30)
-    // bubble.init()
+        if (d < 150) {
+          ctx.beginPath()
+          ctx.moveTo(this.x, this.y)
+          ctx.lineTo(particle.x, particle.y)
+          ctx.closePath()
+          ctx.lineWidth = 0.1
+          ctx.strokeStyle = this.color
+          ctx.stroke()
+        }
+      }
+      // 粒子的移动，必须在屏幕范围内
+      move(w, h) {
+        this.xSpeed = (this.x < w && this.x > 0) ? this.xSpeed : -this.xSpeed
+        this.ySpeed = (this.y < h && this.y > 0) ? this.ySpeed : -this.ySpeed
+        this.x += this.xSpeed / 2
+        this.y += this.ySpeed / 2
+      }
+    }
+    class Bubble extends Particle {
+      constructor(x, y, color, shadow) {
+        super(x, y, color, shadow)
+      }
+      move(h) {
+        this.y = this.y <= -10 ? (this.ySpeed = Math.random(), h + 10) : (this.y - this.ySpeed / 2)
+      }
+    }
+    class StarCanvas {
+      constructor(selector, w, h, num) {
+        this.canvas = document.querySelector(selector)
+        this.ctx = null
+        this.w = w
+        this.h = h
+        this.num = num
+        this.bubbles = []
+      }
+      init() {
+        let w = this.w
+        let h = this.h
+        this.canvas.width = w
+        this.canvas.height = h
+        this.ctx = this.canvas.getContext('2d')
+        let i, num
+        num = this.num
+        for (i = 0; i < num; i++) {
+          this.bubbles.push(new Bubble(Math.random() * w, h + 10, 'rgba(0, 255, 0, 1)', true))
+        }
+        this.draw()
+      }
+      draw() {
+        let ctx = this.ctx
+        let w = this.w
+        let h = this.h
+        let num = this.num
+        let bubbles = this.bubbles
+        ; (function _draw() {
+          ctx.clearRect(0, 0, w, h)
+          for (let i = 0; i < num; i++) {
+            bubbles[i].move(h)
+            bubbles[i].drawParticle(ctx)
+          }
+          requestAnimationFrame(_draw)
+        }())
+      }
+    }
+    let can = '#canvas'
+    let con = document.querySelector('.bg')
+    let w = con.clientWidth
+    let h = con.clientHeight
+    let bubble = new StarCanvas(can, w, h, 30)
+    bubble.init()
 
     $youziku.load("body", "b6cca81ca01c4c5e98a940eda454fa40", "HiraginoGBW3");
     $youziku.draw();
